@@ -1,0 +1,30 @@
+<?page title="Assign Project" contentType="text/html;charset=UTF-8"?>
+<zk>
+<include src="pm_home.zul"/>
+<separator/>
+<separator/>
+<separator/>
+<separator/>
+<div align="center">
+<window title="Assign Project" width="300px">
+	<grid>
+		<rows>
+			<row>
+			Select Project:
+			<combobox autodrop="true">
+				<comboitem label=""></comboitem>
+			</combobox>
+			</row>
+			<row>
+			Select Developers:
+			<checkbox label=""></checkbox>
+			</row>
+			<row>
+			Select Testers:
+			<checkbox label=""></checkbox>
+			</row>
+		</rows>
+	</grid>
+</window>
+</div>
+</zk>

@@ -1,0 +1,30 @@
+<?page title="Home" contentType="text/html;charset=UTF-8"?>
+<zk>
+<style>
+	body
+	{
+		padding:5%;
+	}
+</style>
+<div id="logo" align="center">
+<image src="/images/logo.gif" height="100px"/>
+</div>
+<div id="welcome" align="right">
+	Welcome Pooja!<space />
+	<a href="../index.zul">Logout</a>
+</div>
+<menubar id="menubar" autodrop="true">
+	<menuitem label="Home" href="dev_home.zul"></menuitem>
+	<menu label="Project">
+		<menupopup>
+			<menuitem label="Assigned Projects to me" href="view_proj.zul"></menuitem>
+		</menupopup>
+	</menu>
+	<menu label="Bug">
+		<menupopup>
+			<menuitem label="View Bug Report" href="bug_report.zul"></menuitem>
+		</menupopup>
+	</menu>
+	<menuitem label="Edit Profile" href="edit_prof.zul"></menuitem>
+</menubar>
+</zk>

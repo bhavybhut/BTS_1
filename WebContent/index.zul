@@ -1,0 +1,74 @@
+<?page title="Bug Tracking System" contentType="text/html;charset=UTF-8"?>
+<zk>
+
+<div align="center">
+<image src="/images/logo.gif" height="100px"/>
+</div>
+<separator></separator>
+<separator></separator>
+<separator></separator>
+<separator></separator>
+<separator></separator>
+<separator></separator>
+<separator></separator>
+<separator></separator>
+<div align="center" style="background-color:pink" height="300px">
+
+<window title="Sign-in" width="300px" onOK="loginCheck()" mode="embedded">
+
+<style>
+			
+ 			div.loginGrid 
+ 			{
+            	border: none;
+            }
+           
+            body
+            {
+            	height:100%;
+            	padding:5%;
+            }
+</style>
+<grid id="loginGrid">
+	<columns>
+		<column height="80px"></column>
+		<column height="80px"></column>
+	</columns>
+	<rows>
+		<row>Username : <textbox id="unm"></textbox></row>
+		<row>Password : <textbox id="pwd" type="password"></textbox></row>
+		<row></row>
+		<row align="center">
+		<a href="#">Forgot Password</a>
+		<vlayout><button label="Login" onClick="loginCheck()"></button>
+		<label id="msg"></label></vlayout>
+		</row>
+	</rows>
+</grid>
+<zscript><![CDATA[
+	void loginCheck()
+	{
+		if(unm.getValue().equals("admin") && pwd.getValue().equals("admin"))
+		{
+			Executions.sendRedirect("admin/admin_home.zul");
+		}
+		else if(unm.getValue().equals("test") && pwd.getValue().equals("test"))
+			Executions.sendRedirect("tester/tester_home.zul");
+		else if(unm.getValue().equals("pm") && pwd.getValue().equals("pm"))
+			Executions.sendRedirect("projectmanager/pm_home.zul");
+		else if(unm.getValue().equals("pooja") && pwd.getValue().equals("pooja"))
+			Executions.sendRedirect("developer/dev_home.zul");
+		else
+		{
+			msg.setValue("Invalid username or password");
+			pwd.setValue("");
+			unm.setValue("");
+		}
+	};
+]]>
+</zscript>
+</window>
+
+</div>
+
+</zk>

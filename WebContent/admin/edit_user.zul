@@ -1,0 +1,69 @@
+<?page title="Edit Customer" contentType="text/html;charset=UTF-8"?>
+<zk>
+
+<window id="editUserWin" title="Edit User" width="400px">
+<zscript><![CDATA[
+		import admin.User;
+		import admin.JdbcComposer;
+		public void update(){
+			User users = new User();
+			users.setname(name.getValue());
+			users.setusername(unm.getValue());
+			users.setdesignation(desig.getSelectedItem().getValue().toString());
+			users.setemail(email.getValue());
+			users.setpm(pm.getValue());
+			users.setdept(dept.getValue());
+			JdbcComposer jdbc = new JdbcComposer();
+			jdbc.updateUser(users);
+			Executions.getCurrent().sendRedirect("view_user.zul");
+			editUserWin.detach();
+		}
+]]>
+
+</zscript>
+<zscript><![CDATA[
+        import admin.ViewUser;
+        import admin.User;
+		ViewUser users = new ViewUser();
+		String username = (String)Executions.getCurrent().getArg().get("username");
+		User user = users.getUser(username);
+]]>
+</zscript>
+<grid>
+	<rows>
+		<row>
+			<label value="Name" width="150px"></label>
+			<textbox id="name" value="${user.name }"></textbox>
+		</row>
+		<row>
+			Username:
+			<textbox id="unm" value="${user.username}" constraint="no empty:Username cannot be empty."></textbox>
+		</row>
+		<row>
+			Designation:
+			<combobox id="desig" selectedItem="${user.desig }" autodrop="true" constraint="no empty:Select Designation">
+				<comboitem label="Developer" value="Developer"/>
+				<comboitem label="Project Manager" value="Project Manager"/>
+				<comboitem label="Tester" value="Tester"/>
+			</combobox>
+		</row>
+		<row>
+			Email-id:
+			<textbox id="email" value="${user.email }" constraint="/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/ :Enter a valid Email-id"></textbox>
+		</row>
+		<row>
+			Project Manager:
+			<textbox id="pm" value="${user.pm }"></textbox>
+		</row>
+		<row>
+			Department:
+			<textbox id="dept" value="${user.dept }"></textbox>
+		</row>
+		<row>
+			<button height="30px" label="Update"></button>
+			<button height="30px" label="Cancel"></button>
+		</row>
+	</rows>
+</grid>
+</window>
+</zk>

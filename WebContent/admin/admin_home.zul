@@ -1,0 +1,37 @@
+<?page title="Home" contentType="text/html;charset=UTF-8"?>
+<zk>
+<style>
+	body
+	{
+		padding:5%;
+	}
+</style>
+<div id="logo" align="center">
+<image src="/images/logo.gif" height="100px"/>
+</div>
+<div id="welcome" align="right">
+	Welcome Admin!<space />
+	<a href="../index.zul">Logout</a>
+</div>
+<menubar id="menubar" autodrop="true">
+	<menuitem label="Admin" href="admin_home.zul"></menuitem>
+	<menu label="User">
+		<menupopup>
+			<menuitem label="View User" href="view_user.zul"></menuitem>
+			<menuitem label="Create User" href="create_user.zul"></menuitem>
+		</menupopup>
+	</menu>
+	<menu label="Project">
+		<menupopup>
+			<menuitem label="View Assigned Project" href="view_proj.zul"></menuitem>
+		</menupopup>
+	</menu>
+	<menu label="Bug">
+		<menupopup>
+			<menuitem label="View Bug Report" href="bug_report.zul"></menuitem>
+		</menupopup>
+	</menu>
+	<menuitem label="Edit Profile" href="edit_prof.zul"></menuitem>
+</menubar>
+
+</zk>

@@ -1,0 +1,49 @@
+<?page title="Bug Report" contentType="text/html;charset=UTF-8"?>
+<zk>
+<include src="pm_home.zul"/>
+
+<separator/>
+<separator/>
+<separator/>
+<separator/>
+<separator/>
+<div>
+	<grid>
+		<auxhead>
+			<auxheader colspan="5">Bug Report</auxheader>
+		</auxhead>
+		<auxhead>
+			<auxheader></auxheader>
+			<auxheader>
+				<image src="/images/funnel.png"></image>
+				<textbox instant="true" width="100px"></textbox>
+			</auxheader>
+			<auxheader></auxheader>
+			<auxheader>
+				<image src="/images/funnel.png"></image>
+				<textbox instant="true" width="100px"></textbox>
+			</auxheader>
+			<auxheader>
+				<image src="/images/funnel.png"></image>
+				<textbox instant="true" width="100px"></textbox>
+			</auxheader>
+		</auxhead>
+		<columns>
+			<column>Bug Id</column>
+			<column>Project Name</column>
+			<column>Bug Summary</column>
+			<column>Priority</column>
+			<column>Status</column>
+		</columns>
+		<template name="model">
+			<row>
+				<label value=""></label>
+				<label value=""></label>
+				<label value=""></label>
+				<label value=""></label>
+				
+			</row>
+		</template>
+	</grid>
+</div>
+</zk>

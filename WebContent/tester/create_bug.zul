@@ -1,0 +1,60 @@
+<?page title="Create Bug" contentType="text/html;charset=UTF-8"?>
+<zk>
+<include src="tester_home.zul"/>
+<div align="center">
+<window title="Create a new Bug" width="700px">
+	<grid>
+		<rows>
+			<row>
+				Select Project:
+				<combobox id="proj" autodrop="true" constraint="no empty:Please Select Project">
+					<comboitem label="BTS" value="BTS"/>
+				</combobox>
+			</row>
+			<row>
+				Priority:
+				<combobox id="priority" constraint="no empty:Please select Priority">
+					<comboitem label="Critical"></comboitem>
+					<comboitem label="High"></comboitem>
+					<comboitem label="Normal"></comboitem>
+					<comboitem label="Low"></comboitem>
+				</combobox>
+			</row>
+			<row>
+				Summary:
+				<textbox id="summary" constraint="no empty:Please write summary of bug"></textbox>
+			</row>
+			<row>
+				Description:
+				<textbox id="description" rows="3" constraint="no empty:Describe bug in brief"></textbox>
+			</row>
+			<row>
+				Upload File:
+				<image id="img"/>
+				<fileupload label="Browse">
+		        <attribute name="onUpload">{
+		        	org.zkoss.util.media.Media media = event.getMedia();
+		            if (media instanceof org.zkoss.image.Image)
+		                img.setContent(event.media);
+		            else if (media != null)
+		                Messagebox.show("Not an image: "+media, "Error",
+		                Messagebox.OK, Messagebox.ERROR);
+		            }
+		        </attribute>
+		    </fileupload>
+			</row>
+			<row>
+				Assign To:
+				<combobox id="assign_to" autodrop="true" constraint="no empty:Please Select Developer">
+					<comboitem value=""></comboitem>
+				</combobox>
+			</row>
+			<row>
+				<label></label>
+				<button label="Create Bug" height="30px"></button>
+			</row>
+		</rows>
+	</grid>
+</window>
+</div>
+</zk>
